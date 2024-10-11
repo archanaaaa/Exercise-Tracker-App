@@ -5,6 +5,9 @@ const mongoose = require('mongoose')
 // Have the env variables in the dotenv file
 require('dotenv').config();
 
+console.log('Env file loaded?', process.env.ATLAS_URI ? 'Yes' : 'No');
+console.log('ATLAS_URI:', process.env.ATLAS_URI);
+
 // Create our express server
 const app = express();
 const port = process.env.PORT || 5000
@@ -14,12 +17,16 @@ app.use(cors());
 
 // connect to DB, with uri of the db - from the MongoDB-Atlas dashboard
 const uri = process.env.ATLAS_URI;
+console.log('MongoDB URI:', process.env.ATLAS_URI);  // Debugging line
 mongoose.connect(uri, {useNewURLParser: true});
 
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection successful")
 });
+
+// Allows us to pass json
+app.use(express.json());
 
 // Tell the server to use the API endpoints (from routes folder)
 const exerciseRouter = require('./routes/exercises')
@@ -28,9 +35,6 @@ const userRouter = require('./routes/users')
 // This is the url that will be used at the end and the correspomnding route will be called
 app.use('/exercises',exerciseRouter)
 app.use('/users',userRouter)
-
-// Allows us to pass json
-app.use(express.json());
 
 // Start the server
 app.listen(port, ()=>{
