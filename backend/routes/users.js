@@ -1,8 +1,8 @@
 // Create a route with Express
 const router = require('express').Router();
-let User = require("../models/user.model");
+let User = require('../models/user.model');
 
-// Handle GET requests coming to this endpoint url
+// Handle GET requests 
 router.route('/').get((req, res) => {
     // Use a mongoose method to get all the users from the MongoDB
     User.find()
