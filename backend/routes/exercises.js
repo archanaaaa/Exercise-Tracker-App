@@ -15,27 +15,32 @@ router.route('/add').post((req,res)=>{
 
     console.log('Request Body:', req.body); // Log the entire request body
 
-    const username = req.body.username;
-    const description = req.body.description;
-    const duration = Number(req.body.duration);
-    const date = Date.parse(req.body.date);
+    const { username, description, duration, date } = req.body;
 
-    if (!username || !description || !duration || !date){
-        return res.status(400).json({ error: 'username, description, duration, date fields are required' });    }
+    if (!username || !description || !duration || !date) {
+        console.log('Invalid data received.');
+        return res.status(400).json({ error: 'username, description, duration, date fields are required' });
+    }
 
     // create a new instance of User using username input
     const newExercise = new Exercise({
         username,
         description,
         duration,
-        date
+        date: new Date(date) 
     });
 
     // save is a mangoose method that allows entry into the db
     // it also returns a promise once saved
     newExercise.save()
-        .then(() => res.status(201).json({ message: "Exercise added!" })) // Respond with 201 Created
-        .catch(err => res.status(400).json({ error: 'Error: ' + err.message })); // Send error response
+        .then(() => {
+            console.log('Exercise saved successfully');
+            res.status(201).json({ message: "Exercise added!" });
+        })
+        .catch(err => {
+            console.error('Error saving exercise:', err.message);
+            res.status(400).json({ error: 'Error: ' + err.message });
+        });
 });
 
 // GET BY ID (automatically created by mongodb)

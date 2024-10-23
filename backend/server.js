@@ -18,7 +18,7 @@ app.use(cors());
 // connect to DB, with uri of the db - from the MongoDB-Atlas dashboard
 const uri = process.env.ATLAS_URI;
 console.log('MongoDB URI:', process.env.ATLAS_URI);  // Debugging line
-mongoose.connect(uri, {useNewURLParser: true});
+mongoose.connect(uri, {useNewUrlParser: true});
 
 const connection = mongoose.connection;
 connection.once('open', () => {

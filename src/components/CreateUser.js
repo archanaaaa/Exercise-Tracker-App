@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class CreateUser extends Component {
 
@@ -34,11 +35,15 @@ export default class CreateUser extends Component {
 
         console.log(user);
 
+        axios.post('http://localhost:5000/users/add', user)
+        .then(res => console.log(res.data));
+
         // Once submitted, keep the user on the same page, set user to blank to add more
         this.setState({
             username:''
         })
     }
+    
         render() {
         return (
             <div>
