@@ -20,7 +20,7 @@ export default class CreateExercise extends Component {
 
     componentDidMount() {
         // Add error handling for the initial users fetch
-        axios.get('http://localhost:5000/users/')
+        axios.get('https://exercise-tracker-app-f7ap.onrender.com/users/')
             .then(res => {
                 if (res.data.length > 0) {
                     this.setState({
@@ -91,7 +91,7 @@ export default class CreateExercise extends Component {
 
         try {
             const response = await axios.post(
-                'http://localhost:5000/exercises/add',
+                'https://exercise-tracker-app-f7ap.onrender.com/exercises/add',
                 exercise,
                 {
                     timeout: 5000, // 5 second timeout
