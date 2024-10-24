@@ -28,6 +28,16 @@ connection.once('open', () => {
 // Allows us to pass json
 app.use(express.json());
 
+// Make sure that static files are served with the appropriate MIME type
+app.use(express.static('build', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    }
+  }
+}));
+
+
 // Tell the server to use the API endpoints (from routes folder)
 const exerciseRouter = require('./routes/exercises')
 const userRouter = require('./routes/users')
