@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# Exercise Tracker App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Live Website**: [Exercise Tracker App](https://exercise-tracker-app-frontend-oc6q.onrender.com)
 
-## Available Scripts
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Backend API](#backend-api)
+- [Learnings and Implementation](#learnings-and-implementation)
+- [Future Improvements](#future-improvements)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+The **Exercise Tracker App** is a full-stack application that allows users to track their exercise routines by logging details such as the exercise name, duration, and date. The app provides a responsive and user-friendly interface for users to add, view, update, and delete their exercise records. This project showcases my learning and implementation of modern web development practices, including working with React for the frontend and Node.js, Express for the backend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Responsive design for mobile and desktop devices
+- Add new exercises with details (name, duration, and date)
+- View a list of all exercises
+- Edit or delete individual exercises
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend:
+- **React** (UI library for building the app's interface)
+- **Axios** (for making HTTP requests to the backend)
+- **React Router** (for handling navigation between different pages)
+- **CSS** (for styling the UI)
+- **ESLint** (for maintaining code quality)
 
-### `npm run build`
+### Backend:
+- **Node.js** with **Express** (for building the server and API)
+- **MongoDB** (as the database for storing user data and exercises)
+- **Mongoose** (for data modeling and database interactions)
+- **CORS** (to allow communication between the frontend and backend)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this app locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/archanaaaa/Exercise-Tracker-App.git
+   cd Exercise-Tracker-App
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install the dependencies for both the frontend and backend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   **Frontend**:
+   ```bash
+   cd client
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   **Backend**:
+   ```bash
+   cd backend
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the backend server:
 
-## Learn More
+   ```bash
+   cd backend
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Start the frontend development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd client
+   npm start
+   ```
 
-### Code Splitting
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Backend API
 
-### Analyzing the Bundle Size
+The backend API is built using Node.js and Express and provides endpoints for CRUD operations related to the exercises.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Key Endpoints:
+- `POST /api/users/register`: Registers a new user.
+- `POST /api/users/login`: Logs in an existing user and returns a JWT.
+- `GET /api/exercises`: Retrieves all exercises.
+- `POST /api/exercises`: Adds a new exercise.
+- `PUT /api/exercises/:id`: Updates an existing exercise.
+- `DELETE /api/exercises/:id`: Deletes an exercise.
 
-### Making a Progressive Web App
+## Learnings and Implementation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### What I Learned:
+1. **React and State Management**: This project allowed me to deepen my understanding of React hooks (`useState`, `useEffect`) and how to manage local component state.
+   
+2. **Routing in React**: I implemented `React Router` to create a multi-page experience without refreshing the page. This included routing to pages for adding exercises, viewing the exercise list, and editing exercises.
 
-### Advanced Configuration
+3. **Handling Forms in React**: I learned how to handle form inputs in React for both creating and editing exercises. This helped me better understand controlled components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. **Axios for API Requests**: I used `Axios` to communicate between the frontend and backend, sending HTTP requests (GET, POST, PUT, DELETE) to the backend server for managing exercise data.
 
-### Deployment
+5. **Building a RESTful API**: I built a REST API using `Node.js` and `Express`, where I created routes for CRUD operations on exercises. This included connecting to a MongoDB database using Mongoose and managing data models.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+6. **Working with MongoDB**: I learned how to model data using Mongoose, and how to perform CRUD operations on a NoSQL database.
 
-### `npm run build` fails to minify
+7. **Deployment**: I deployed the frontend and backend separately on Render.com. I learned about deployment workflows, environment variables, and handling the build process for production environments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Key Challenges and Solutions:
+- **MIME Type Mismatch**: During deployment, I encountered a MIME type mismatch issue with my JavaScript files. I resolved this by correctly setting the `homepage` in my `package.json` to point to the live deployment URL.
+  
+- **CORS Issues**: While setting up communication between the frontend and backend, I faced CORS errors. I resolved this by configuring the CORS middleware in my backend to allow requests from the frontend.
+
+## Future Improvements
+
+1. **Improved Error Handling**: Implement more robust error handling both on the frontend (for form validation and API responses) and on the backend (using try-catch blocks and custom error messages).
+
+2. **Unit and Integration Tests**: Implement unit testing using tools like Jest and Enzyme for React components and Mocha/Chai for backend testing.
+
+3. **Pagination for Exercises**: Add pagination to the exercises list so that users can navigate through their exercise history more easily.
+
+4. **Exercise Categories**: Implement exercise categories or tags for better organization and filtering of logged exercises.
+
+5. **Data Visualization**: Add charts or graphs to visualize users' progress over time based on their logged exercises.
